@@ -26,6 +26,10 @@ import numpy as np
 
 print("Expanding the MNIST training set")
 
+path = "C:/Users/lind/Git/mnist_numpy"
+
+os.chdir(path)
+
 if os.path.exists("C:/Users/lind/Git/neural-networks-and-deep-learning-master/data/mnist_expanded.pkl.gz"):
     print("The expanded training set already exists.  Exiting.")
 else:
@@ -55,6 +59,6 @@ else:
     random.shuffle(expanded_training_pairs)
     expanded_training_data = [list(d) for d in zip(*expanded_training_pairs)]
     print("Saving expanded data. This may take a few minutes.")
-    f = gzip.open("../data/mnist_expanded.pkl.gz", "w")
+    f = gzip.open("C:/Users/lind/Git/neural-networks-and-deep-learning-master/data/mnist_expanded.pkl.gz", "w")
     cPickle.dump((expanded_training_data, validation_data, test_data), f)
     f.close()
